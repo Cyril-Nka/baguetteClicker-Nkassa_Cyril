@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-frame',
@@ -6,7 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./frame.component.css'],
 })
 export class FrameComponent implements OnInit {
-  constructor() {}
+  @Input() title: string;
+  @Input() copyrightYear: number;
+  @Input() copyrightName: string;
 
-  ngOnInit(): void {}
+  ngOnInit(): void {} 
+   
+  constructor() {
+      this.title = '';
+
+      this.copyrightYear = 0;
+
+      this.copyrightName = '';
+      
+    }
 }
