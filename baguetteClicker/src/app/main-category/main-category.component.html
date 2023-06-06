@@ -1,42 +1,50 @@
 <div class="center-items col-category">
     <div class="space-category-details">
-        <div *ngFor="let category of descCategories" class="category-details">
-            <h3>{{ category.name }}</h3>
-                  <p>Nombre: {{ category.total }}</p>
-                  <p>Production: {{ category.eachSecond }}</p>
-                <p>Production: {{ category.eachSecond }}</p>
-        </div>
+      <div *ngFor="let category of descCategories" class="category-details">
+
+        <h3>{{ category.name }}</h3>
+        <p>Nombre: {{ category.total }}</p>
+        <p>Production par seconde: {{ category.eachSecond }}</p>
+
+      </div>
     </div>
-</div>
+  </div>
+  
 
+  <div class="center-items centered-category">
 
-
-
-<div class="center-items centered-category">
     <h2 class="title-frame">
-        {{ totalGlobal }} {{ titlesList[0] }}
+      {{ totalGlobal | number:'1.0-0' }} {{ titlesList[0] }}
     </h2>
-  <span class="bakery-frame-color small-text" *ngIf="totalPerSecond !== 0">
-    {{ totalPerSecond }} {{ titlesList[1] }}
-</span>
+    <span class="bakery-frame-color small-text" *ngIf="totalPerSecond !== 1">
+      {{ totalPerSecond | number:'1.0-0' }} {{ titlesList[1] }}
+    </span>
+  
 
     <div class="center-items">
-        <a (click)="onClickBread()">
-            <img class="bread-clicker" [src]="breadClicker[0]" [alt]="breadClicker[1]" />
-          </a>
+
+      <a (click)="onClickBread()">
+        <img class="bread-clicker" [src]="breadClicker[0]" [alt]="breadClicker[1]" />
+      </a>
+
     </div>
-    <div class="center-items bonus-shop-frame">
-    </div>
-</div>
-<div class="center-items col-category">
-</div>
+    
+    <div class="center-items bonus-shop-frame"></div>
+  </div>
+  
 
+  <div class="center-items col-category">
 
+    <button *ngFor="let type of categories" [disabled]="type.inactive">{{ type.name }}</button>
 
+  </div>
+  
 
+  <div class="center-items bonus-shop-frame">
 
-<div class="center-items col-category">
-    <div class="center-items col-category">
-        <button *ngFor="let type of categories" [disabled]="type.inactive">{{ type.name }}</button>
-    </div>
-</div>
+    <button *ngFor="let item of categories" (click)="buyItem(item.id)" [disabled]="item.inactive">
+      {{ item.name }}
+    </button>
+    
+  </div>
+  
