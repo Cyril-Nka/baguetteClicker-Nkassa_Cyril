@@ -15,6 +15,7 @@ export class PluralizePipe implements PipeTransform {
      return value + ' ' + plural;
 
     }
+    
   }
 
 
